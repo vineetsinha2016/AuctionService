@@ -1,0 +1,42 @@
+#spring:
+#  h2:
+#    console:
+#      enabled:true
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:mysql://localhost:3306/cs_auction
+#    username: root
+#    password: admin
+#    driver-class-name: com.mysql.jdbc.Driver
+#    platform: mysql
+spring:
+  datasource:
+    url: jdbc:h2:mem:cs_auction;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create #update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: false
+
+###
+#   H2 Settings
+###
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+server:
+  servlet:
+    path: /auction
